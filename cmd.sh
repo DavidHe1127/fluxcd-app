@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# flux logs --follow --level=error --all-namespaces
+
 # flux create source helm ingress-nginx --url https://kubernetes.github.io/ingress-nginx --namespace main --export
 
 # flux create helmrelease ingress-nginx --chart ingress-nginx \

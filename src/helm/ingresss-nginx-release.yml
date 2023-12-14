@@ -14,11 +14,13 @@ spec:
         name: ingress-nginx
       version: 4.7.2
 
-      # default override
-      values:
-        controller:
-          service:
-            annotations: 
-              service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
+  # default override
+  values:
+    controller:
+      service:
+        annotations: 
+          service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
 
   interval: 1m0s
+
+  .spec.chart.spec.values
