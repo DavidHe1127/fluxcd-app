@@ -1,5 +1,6 @@
-# it deploys a ingress controller pod to monitor ingress rules and operate based on that
+# it deploys a ingress controller pod (an nginx server) to monitor ingress rules and operate based on that
 # it also creates an external ip (a public ip on azure) by default and assign it to the default load balancer (in node resource group) created as part of cluster creation.
+# when adding ingress object (routing rules), rules are added to the nginx config followed by a reload for rules to take effect
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
