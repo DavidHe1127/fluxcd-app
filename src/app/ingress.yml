@@ -9,35 +9,35 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-        - daveakslab.azure.com
-      secretName: ingress-tls-csi
+  # tls:
+  #   - hosts:
+  #       - daveakslab.azure.com
+  #     secretName: ingress-tls-csi
   rules:
-    - host: daveakslab.azure.com
-      http:
-        paths:
-          - path: /hello-world-one(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: aks-helloworld-one
-                port:
-                  number: 80
-          - path: /hello-world-two(/|$)(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: aks-helloworld-two
-                port:
-                  number: 80
-          - path: /(.*)
-            pathType: Prefix
-            backend:
-              service:
-                name: aks-helloworld-one
-                port:
-                  number: 80
+    # - host: daveakslab.azure.com
+    - http:
+      paths:
+        - path: /hello-world-one(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: aks-helloworld-one
+              port:
+                number: 80
+        - path: /hello-world-two(/|$)(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: aks-helloworld-two
+              port:
+                number: 80
+        - path: /(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: aks-helloworld-one
+              port:
+                number: 80
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
