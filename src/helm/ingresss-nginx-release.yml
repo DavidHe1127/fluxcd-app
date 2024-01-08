@@ -27,7 +27,8 @@ spec:
             driver: secrets-store.csi.k8s.io
             readOnly: true
             volumeAttributes:
-              secretProviderClass: "nginx-ingress-tls"
+              # SecretProviderClass resource name
+              secretProviderClass: "dave-aks-ingress-tls"
       extraVolumeMounts:
         - name: secrets-store-inline
           mountPath: "/mnt/secrets-store"

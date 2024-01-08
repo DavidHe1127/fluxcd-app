@@ -9,13 +9,13 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
   ingressClassName: nginx
-  # tls:
-  #   - hosts:
-  #       - daveakslab.azure.com
-  #     secretName: ingress-tls-csi
+  tls:
+    - hosts:
+        - aks.cloudwise.net.au
+      secretName: ingress-tls-csi
   rules:
-    # - host: daveakslab.azure.com
-    - http:
+    - host: aks.cloudwise.net.au
+      http:
         paths:
           - path: /hello-world-one(/|$)(.*)
             pathType: Prefix
