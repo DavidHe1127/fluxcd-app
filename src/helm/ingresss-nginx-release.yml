@@ -18,10 +18,22 @@ spec:
       version: 4.7.2
 
   # default override
+  # https://github.com/kubernetes/ingress-nginx/blob/1bc745619d91b690c8985bbc16097e9fe804d2d2/charts/ingress-nginx/values.yaml
   values:
     controller:
+      extraVolumes:
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: "nginx-ingress-tls"
+      extraVolumeMounts:
+        - name: secrets-store-inline
+          mountPath: "/mnt/secrets-store"
+          readOnly: true
       service:
-        annotations: 
+        annotations:
           service.beta.kubernetes.io/azure-load-balancer-health-probe-request-path: /healthz
+  
   interval: 1m0s
-
