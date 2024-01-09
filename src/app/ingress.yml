@@ -9,10 +9,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-      - aks.cloudwise.net
+      - aks.cloudwise.net.au
     secretName: ingress-tls-csi
   rules:
-  - host: aks.cloudwise.net
+  - host: aks.cloudwise.net.au
     http:
       paths:
       - path: /hello-world-one(/|$)(.*)
