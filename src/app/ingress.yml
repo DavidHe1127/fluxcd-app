@@ -9,7 +9,7 @@ spec:
   tls:
   - hosts:
       - aks.cloudwise.net
-      secretName: ingress-tls-csi
+    secretName: ingress-tls-csi
   rules:
   - host: aks.cloudwise.net
     http:
