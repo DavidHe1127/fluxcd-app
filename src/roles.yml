@@ -1,0 +1,64 @@
+# dev role
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: dev-user-full-access
+  namespace: dev
+rules:
+  - apiGroups: ["", "extensions", "apps"]
+    resources: ["*"]
+    verbs: ["*"]
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+      - cronjobs
+    verbs: ["*"]
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: dev-user-access
+  namespace: dev
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: dev-user-full-access
+subjects:
+  - kind: Group
+    namespace: dev
+    # appdev group id on Entra ID
+    name: eea7550d-bc89-44bd-8091-4143cf76951a
+
+---
+# sre role
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: sre-user-full-access
+  namespace: sre
+rules:
+  - apiGroups: ["", "extensions", "apps"]
+    resources: ["*"]
+    verbs: ["*"]
+  - apiGroups: ["batch"]
+    resources:
+      - jobs
+      - cronjobs
+    verbs: ["*"]
+
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: sre-user-access
+  namespace: sre
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: sre-user-full-access
+subjects:
+  - kind: Group
+    namespace: sre
+    # opssre group id on Entra ID
+    name: 415cea3c-67a5-4d86-80f2-d09b070f280c

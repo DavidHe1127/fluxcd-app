@@ -4,3 +4,20 @@ metadata:
   name: main
   labels:
     name: main
+
+---
+# dev and sre ns added for entra ID integration lab
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: dev
+  labels:
+    name: dev
+
+---
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: sre
+  labels:
+    name: sre
