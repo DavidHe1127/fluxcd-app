@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psql-utility
+  namespace: main
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: psql-utility
+  template:
+    metadata:
+      labels:
+        app: psql-utility
+    spec:
+      containers:
+      - name: psql-utility
+        image: postgres:13-bullseye
+        ports:
+        - containerPort: 80
