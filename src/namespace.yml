@@ -23,4 +23,4 @@ metadata:
     name: sre
     # set PSS to restricted
     # https://samos-it.com/posts/Preventing-Privileged-pods-using-Pod-Security-Admission-Standards.html
-    pod-security.kubernetes.io/enforce: restricted
+    # pod-security.kubernetes.io/enforce: restricted
