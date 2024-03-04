@@ -21,5 +21,5 @@ spec:
           ports:
             - containerPort: 80
           # this violates PSS (restricted) so pod will not be admitted into sre ns
-          securityContext:
-            privileged: true
+          # securityContext:
+          #   privileged: true
