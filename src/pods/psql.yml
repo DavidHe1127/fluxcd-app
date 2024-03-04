@@ -14,7 +14,10 @@ spec:
         app: psql-utility
     spec:
       containers:
-      - name: psql-utility
-        image: postgres:13-bullseye
-        ports:
-        - containerPort: 80
+        - name: psql-utility
+          image: postgres:13-bullseye
+          env:
+            - name: POSTGRES_HOST_AUTH_METHOD
+              value: trust
+          ports:
+            - containerPort: 80
